@@ -11,15 +11,17 @@
 </head>
 <body>
   <h1>Etch-A-Sketch</h1>
+  <p id="message"></p>
   <div class="header">
     <h6>Select the size:</h6>
-  <button id="popup" class="btn btn-danger">Select</button>
+  <button id="popup" class="btn btn-danger">Start</button>
+  
 </div>
 <div class="board" id="grid"></div>
 <div class="footer">
-  <button class="btn btn-dark">Black</button>
-  <button class="btn btn-warning">Random</button>
-  <button class="btn btn-primary">Reset</button>
+  <button id="black-color-btn" class="btn btn-dark" onclick="setColor('black')">Black</button>
+  <button id="random-color-btn" class="btn btn-warning" onclick="setColor('random')">Random</button>
+  <button id="reset-btn" class="btn btn-primary">Reset</button>
 </div>
 </body>
 </html>
