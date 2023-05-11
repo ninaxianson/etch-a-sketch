@@ -2,7 +2,19 @@ const resetBtn = document.getElementById('reset-btn');
 let board = document.getElementById("grid");
 let createBoardBtn = document.getElementById("popup");
 let color = "black";
+let click = false;
 
+document.querySelector("body").addEventListener("click", function(e) {
+  if (e.target.className != "BUTTON"){
+    click = !click;
+    let draw = document.getElementById('draw');
+    if (click) {
+      draw.innerText = "Draw"
+    } else {
+      draw.innerText = "Pen Paused"
+    }
+  }
+})
 
 function createBoard(size) {
   board.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
@@ -22,17 +34,19 @@ function getSize() {
   if (userInput === "" || userInput < 1 || userInput > 100) {
     message.textContent = "Please enter a valid number between 1 and 100";
   } else {
-    message.innerText = "Ready to draw";
+    message.innerText = "Click to pause pen";
     return userInput;
   }
 }
 
 function colorDiv() {
-  if (color === "random") {
+  if(click ){
+   if (color === "random") {
     this.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
   } else {
     this.style.backgroundColor = "black";
   }
+}
 }
 
 function setColor(colorChoice) {
